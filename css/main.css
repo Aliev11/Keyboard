@@ -1,0 +1,35 @@
+#keyboard{
+    display: block;
+    border: 2px solid black;
+    padding: 5px;
+}
+#keyboard::after{
+    display: block;
+    content: "";
+    clear: both;
+}
+.input{
+    margin-top: 10px;
+    width: 904px;
+    height: 50px;
+    border: 2px solid darkgray;
+    padding: 5px;
+}
+.active{
+   background-color: cornflowerblue;
+   font-size: 20px;
+}
+.clearfix{
+    display: block;
+    width: 100%;
+    clear: both;
+}
+.k-key{
+    border: 1px solid black;
+    width: 50px;
+    height: 50px;
+    float: left;
+    padding: 3px;
+    margin: 3px;
+    text-align: center;
+}
