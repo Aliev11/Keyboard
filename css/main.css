@@ -1,23 +1,33 @@
+.page{
+    height: 100%;
+    width: 100vw;
+}
+.contain{
+    max-width: 800px;
+    display: flex;
+    flex-direction: column;
+    margin: 120px auto;
+}
 #keyboard{
+    cursor: pointer;
+    background: #808080;
     display: block;
     border: 2px solid black;
     padding: 5px;
+    width: fit-content;
+    margin: 120px auto 10px;
 }
 #keyboard::after{
     display: block;
     content: "";
     clear: both;
 }
-.input{
-    margin-top: 10px;
-    width: 904px;
+textarea{
+    resize: none;
+    width: 100%;
     height: 50px;
     border: 2px solid darkgray;
     padding: 5px;
-}
-.active{
-   background-color: cornflowerblue;
-   font-size: 20px;
 }
 .clearfix{
     display: block;
@@ -25,6 +35,8 @@
     clear: both;
 }
 .k-key{
+    text-transform: uppercase;
+    background: #C0C0C0;
     border: 1px solid black;
     width: 50px;
     height: 50px;
@@ -32,4 +44,17 @@
     padding: 3px;
     margin: 3px;
     text-align: center;
+}
+.active{
+    background-color: whitesmoke;
+    font-size: 16px;
+ }
+.backspace{
+    text-transform: none;
+    width: fit-content; 
+    padding: 6px  25px 0;
+    text-align: center;
+}
+.enter{
+    text-transform: none;
 }
