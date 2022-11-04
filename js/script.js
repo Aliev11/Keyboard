@@ -1,5 +1,5 @@
 let keyboard = [49, 50, 51, 52, 53, 54, 55, 56, 57, 48, 45, 61, 113, 119, 101, 114, 116, 121, 117, 105, 111, 112, 91, 93, 97, 115, 100, 102, 103, 104, 106, 107, 108, 59, 39, 122, 120, 99, 118, 98, 110, 109, 44, 46, 47];
-let out = document.querySelector('textarea');
+let out = document.querySelector('.textarea');
 function init() {
     let output = '';
     for (let i = 0; i < keyboard.length; i++) {
@@ -21,11 +21,11 @@ function backspace() {
         elem.classList.remove('active');
     });
     back.classList.add('active');
-    let a = document.querySelector('textarea').value;
+    let a = document.querySelector('.textarea').textContent;
     let b = a.split('');
     b.pop();
     let c = b.join('')
-    out.value = c;
+    out.textContent = c;
 }
 document.querySelectorAll('.k-key').forEach(element => {
     element.onclick = function () {
@@ -34,7 +34,7 @@ document.querySelectorAll('.k-key').forEach(element => {
         });
         this.classList.add('active');
         let a = this.getAttribute('data');
-        out.value += String.fromCharCode(a);
+        out.textContent += String.fromCharCode(a);
     }
     document.onkeypress = function (element) {
         document.querySelectorAll('.k-key').forEach(element => {
@@ -43,7 +43,7 @@ document.querySelectorAll('.k-key').forEach(element => {
         let a = document.querySelector('.k-key[data="' + element.keyCode + '"]');
         a.classList.add('active');
         let code = a.getAttribute('data');
-        out.value += String.fromCharCode(code);
+        out.textContent += String.fromCharCode(code);
     }
     let back = document.querySelector('.backspace');
         back.onclick = function one() {
@@ -68,11 +68,15 @@ document.querySelectorAll('.k-key').forEach(element => {
             elem.classList.remove('active');
         });
         enter.classList.add('active');
-        let a = document.querySelector('textarea').value;
-        let b = a.split('');
-        b.push("<br>");
-        let Example = document.querySelector('.k');
-        Example.innerHTML += b;
+        let a = document.querySelector('.textarea').innerHTML;
+        let b = a.split();
+        let Example = document.querySelector('.textarea');
+        let c = '';
+        for(let key in b){
+            c += `${b[key]}<br>1`;
+        }
+        console.log(c);
+        Example.innerHTML = c;
     }
         
     
