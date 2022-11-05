@@ -47,10 +47,6 @@ textarea{
     margin: 3px;
     text-align: center;
 }
-.active{
-    background-color: whitesmoke;
-    font-size: 16px;
- }
 .backspace{
     text-transform: none;
     width: fit-content; 
@@ -67,7 +63,29 @@ textarea{
 .ctrl{
     text-transform: none;
     width: 115px;
+    background: chartreuse;
+    border: 1px solid black;
+    height: 50px;
+    float: left;
+    padding: 3px;
+    margin: 3px;
+    text-align: center;
 }
 .shift{
     text-transform: none;
+    background: #C0C0C0;
+    border: 1px solid black;
+    width: 50px;
+    height: 50px;
+    float: left;
+    padding: 3px;
+    margin: 3px;
+    text-align: center;
+}
+.active{
+    background-color: whitesmoke;
+    font-size: 16px;
+}
+.upper{
+    text-transform: uppercase;
 }

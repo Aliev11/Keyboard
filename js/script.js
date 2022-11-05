@@ -5,31 +5,19 @@ function init() {
     for (let i = 0; i < keyboard.length; i++) {
         output += '<div class = "k-key" data = "' + keyboard[i] + '">' + String.fromCharCode(keyboard[i]) + '</div>';
         if (i == 33) {
-            output += '<div class="k-key ctrl">Ctrl</div>';
+            output += '<div class="ctrl">My GitHub</div>';
         }
         if (i == 11 || i == 23 || i == 33) {
             output += '<div class="clearfix"></div>';
         }
     }
     output += '<div class="k-key backspace">BackSpace</div>';
-    output += '<div class="k-key shift">Shift</div>';
+    output += '<div class="shift">Caps</div>';
     output += '<div class="k-key slice"></div>';
     output += '<div class="k-key enter">Enter</div>';
     document.querySelector('#keyboard').innerHTML = output;
 }
 init();
-function backspace() {
-    let back = document.querySelector('.backspace');
-    document.querySelectorAll('.k-key').forEach(elem => {
-        elem.classList.remove('active');
-    });
-    back.classList.add('active');
-    let a = document.querySelector('textarea').textContent;
-    let b = a.split('');
-    b.pop();
-    let c = b.join('')
-    out.textContent = c;
-}
 document.querySelectorAll('.k-key').forEach(element => {
     element.onclick = function () {
         document.querySelectorAll('.k-key').forEach(elem => {
@@ -43,27 +31,55 @@ document.querySelectorAll('.k-key').forEach(element => {
         document.querySelectorAll('.k-key').forEach(element => {
             element.classList.remove('active');
         });
-        let a = document.querySelector('.k-key[data="' + element.keyCode + '"]');
+        let a = document.querySelector('.k-key[data="' + element.charCode + '"]');
         a.classList.add('active');
         let code = a.getAttribute('data');
         out.textContent += String.fromCharCode(code);
     }
     let back = document.querySelector('.backspace');
-        back.onclick = function one() {
-            document.querySelectorAll('.k-key').forEach(elem => {
-                elem.classList.remove('active');
-            });
-            back.classList.add('active');
+    back.onclick = backspace;
+    document.onkeydown = (element) => {
+        if (element.keyCode == 8) {
             backspace();
         }
-        document.onkeydown = function (even) {
-            if (even.key == 'Backspace') {
-                backspace();
-            }
+        if(element.keyCode == 13){
+            location.reload();
         }
-    
+    }
+    function backspace() {
+        let back = document.querySelector('.backspace');
+        document.querySelectorAll('.k-key').forEach(elem => {
+            elem.classList.remove('active');
+        });
+        back.classList.add('active');
+        let a = document.querySelector('textarea').textContent;
+        let b = a.split('');
+        b.pop();
+        let c = b.join('')
+        out.textContent = c;
+    }
+    let shift = document.querySelector('.shift');
+    shift.onclick = shiftclick;
+    function shiftclick() {
+        if (shift.classList.contains('active')) {
+            shift.classList.remove('active');
+            out.classList.remove('upper');
+
+        }
+        else {
+            shift.classList.add('active');
+            out.classList.add('upper');
+        }
+    }
+
     let slice = document.querySelector('.slice');
-    slice.onclick = function () {
+    slice.onclick = slicefunc;
+    document.onkeyup = (even) => {
+        if (even.keyCode == 32) {
+            slicefunc();
+        }
+    }
+    function slicefunc() {
         document.querySelectorAll('.k-key').forEach(elem => {
             elem.classList.remove('active');
         });
@@ -73,6 +89,11 @@ document.querySelectorAll('.k-key').forEach(element => {
         document.querySelector('textarea').innerHTML = a;
 
     }
-        
     
 });
+document.querySelector('.ctrl').onclick = () => {
+    window.open(href = 'https://github.com/Aliev11?tab=repositories', '_blank');
+}
+document.querySelector('.enter').onclick = () => {
+    location.reload();
+}
