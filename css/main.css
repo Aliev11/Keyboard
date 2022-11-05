@@ -15,7 +15,7 @@
     display: block;
     border: 2px solid black;
     padding: 5px;
-    width: fit-content;
+    width: 770px;
     margin: 120px auto 10px;
 }
 #keyboard::after{
@@ -25,7 +25,8 @@
 }
 textarea{
     resize: none;
-    width: 100%;
+    margin: 0 auto;
+    width: 770px;
     height: 50px;
     border: 2px solid darkgray;
     padding: 5px;
@@ -57,5 +58,16 @@ textarea{
     text-align: center;
 }
 .enter{
+    text-transform: none;
+    width: 115px;
+}
+.slice{
+    width: 563px;
+}
+.ctrl{
+    text-transform: none;
+    width: 115px;
+}
+.shift{
     text-transform: none;
 }
